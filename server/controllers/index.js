@@ -10,7 +10,7 @@ module.exports = {
 
       models['messages'].getAsync()
       .then(function(rows) {
-        //console.log(rows)
+        console.log(rows)
         res.send(JSON.stringify({results: rows}));
       })
       .catch(function(err){
@@ -19,10 +19,11 @@ module.exports = {
     }, // a function which handles a get request for all messages
     post: function (req, res) {
       var message = req.body;
-      models['messages'].postAsync(message.text, message.uId, message.rId).then(function(){
+      models['messages'].postAsync(message.text, message.username, message.roomname).then(function(){
         res.end('your message was stored');
       })
       .catch(function(err){
+        console.log(err);
         res.end();
       });
     }, // a function which handles posting a message to the database
