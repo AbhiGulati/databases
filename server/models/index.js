@@ -24,9 +24,13 @@ module.exports = {
   },
 
   users: {
-    // Ditto as above.
-    get: function () {},
-    post: function () {}
+    get: function (callback) {
+      callback();
+    },
+    post: function (callback) {
+
+      callback();
+    }
   }
 };
 

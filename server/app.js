@@ -15,21 +15,14 @@ module.exports.app = app;
 app.set("port", 3000);
 
 // for Cross Origin requests
-var allowCrossDomain = function(req, res, next) {
-    res.header('Access-Control-Allow-Origin', '*');
+/*    res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
+    console.log("handling OPTIONS request")
+    res.send(200);
+});*/
 
-    // intercept OPTIONS method
-    if ('OPTIONS' == req.method) {
-      res.send(200);
-    }
-    else {
-      next();
-    }
-};
-
-app.use(allowCrossDomain);
+//app.use("/", allowCrossDomain);
 
 // Logging and parsing
 app.use(morgan('dev'));
