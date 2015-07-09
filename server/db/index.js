@@ -12,7 +12,7 @@ connection.connect()
 
 connection.query('select * from users', function(err, rows, fields){
   if (err) throw err;
-  console.log(rows)
+  //console.log(rows)
 });
 
 module.exports = connection;
