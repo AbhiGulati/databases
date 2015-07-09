@@ -12,7 +12,15 @@ module.exports = {
         callback(err, rows);
       })
     },
-    post: function () {} // a function which can be used to insert a message into the database
+    post: function (text, uId, rId, callback) {
+      var values = "(" + "'" + text + "'" + ", " +  "'" + uId + "'" + ", "  + "'" + rId  + "'" + ")";
+      console.log(values);
+      db.query('insert into messages (text, user_id, room_id) values ' + values, function(err, rows){
+        if (err) throw err;
+        callback(err, rows);
+
+      });
+    } // a function which can be used to insert a message into the database
   },
 
   users: {

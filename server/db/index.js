@@ -8,7 +8,7 @@ var connection = mysql.createConnection({
   password : '',
   database : 'chat'
 })
-connection.connect()
+//connection.connect()
 
 connection.query('select * from users', function(err, rows, fields){
   if (err) throw err;

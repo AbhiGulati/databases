@@ -20,7 +20,14 @@ module.exports = {
         res.end();
       });
     }, // a function which handles a get request for all messages
-    post: function (req, res) {} // a function which handles posting a message to the database
+    post: function (req, res) {
+     // console.log(req.body);
+      var message = req.body;
+      models['messages'].postAsync(message.text, message.uId, message.rId).then(function(){
+        res.end('your message was stored');
+      })
+
+    } // a function which handles posting a message to the database
   },
 
   users: {
