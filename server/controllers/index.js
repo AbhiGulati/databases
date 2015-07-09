@@ -10,6 +10,7 @@ module.exports = {
 
       models['messages'].getAsync()
       .then(function(rows) {
+        //console.log(rows)
         res.send(JSON.stringify({results: rows}));
       })
       .catch(function(err){
@@ -25,18 +26,6 @@ module.exports = {
         res.end();
       });
     }, // a function which handles posting a message to the database
-    option: function(req, res){
-      console.log("handling OPTIONS request")
-      var header = {
-        'Access-Control-Allow-Origin': '*',
-        'Cccsess-Control-Allow-Methods': "GET, POST, PUT, DELETE, OPTIONS",
-        'Access-Control-Allow-Headers' : 'content-type, accept',
-        'Access-Control-Max-Age': 10,
-        'Content-Type': 'application/json'
-      };
-      res.writeHead(200, header);
-      res.end(JSON.stringify(header));
-    },
   },
 
   users: {
@@ -61,9 +50,6 @@ module.exports = {
         res.end();
       });
     }, // a function which handles adding a user to the database
-    option: function(req, res){
-
-    },
   }
 };
 

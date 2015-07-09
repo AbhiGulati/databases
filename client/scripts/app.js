@@ -209,10 +209,11 @@ $(function() {
         //data: { order: '-createdAt'},
         success: function(data) {
           console.log('chatterbox: Messages fetched');
-
+          data = JSON.parse(data);
+          console.log(typeof data);
+          console.log( data);
           // Don't bother if we have nothing to work with
           if (!data.results || !data.results.length) { return; }
-
           // Get the last message
           var mostRecentMessage = data.results[data.results.length-1];
           var displayedRoom = $('.chat span').first().data('roomname');

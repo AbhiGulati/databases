@@ -4,8 +4,8 @@ if (!/(&|\?)username=/.test(window.location.search)) {
   if (newSearch !== '' & newSearch !== '?') {
     newSearch += '&';
   }
- // newSearch += 'username=' + (prompt('What is your name?') || 'anonymous');
-  //window.location.search = newSearch;
+  newSearch += 'username=' + (prompt('What is your name?') || 'anonymous');
+  window.location.search = newSearch;
 }
 
 // All this is doing is inserting the parse API keys into every $.ajax
