@@ -5,8 +5,8 @@ USE chat;
 CREATE TABLE messages (
   id INT(11) NOT NULL auto_increment,
   text VARCHAR(250),
-  user_id INT(11),
-  room_id INT(11),
+  user_id INT(11) not null,
+  room_id INT(11) not null,
   date timestamp,
   PRIMARY KEY (id)
   /* Describe your table here.*/

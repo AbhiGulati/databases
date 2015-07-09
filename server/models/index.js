@@ -7,7 +7,8 @@ module.exports = {
   messages: {
     // a function which queries the database and retrieves all the messages
     get: function (callback) {
-      var queryStr = 'select m.text, (select u.name from users u where m.user_id=u.id) as username, m.room_id from messages m'
+      var queryStr = 'select m.text, (select u.name from users u where m.user_id=u.id) as username, \
+      (select r.name from rooms r where m.room_id = r.id) as roomname from messages m'
       db.query(queryStr, function(err, rows, fields) {
         if (err) throw err;
         callback(err, rows);
